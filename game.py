@@ -4,10 +4,6 @@ import getpass
 import smtplib
 import ssl
 
-
-
-
-
 def main():
     parser = ArgumentParser(description="The Chameleon Game")
     parser.add_argument('players_file', type=str,
@@ -33,6 +29,8 @@ def main():
     with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
 
         server.login(memail, password)
+
+        print(players)
         
         for (player, pemail) in players:
             message = player + "Something went wrong, ask Eric for help"
